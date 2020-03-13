@@ -20,7 +20,7 @@ The Model was tested on Celeba test set and example_data_glasses (40 images)
 ## Metrics:
 Inference time on 1 sample is around 6ms on CPU  
 Saved_model (tensorflow) of classificator takes less then 2MB space  
-EER on example_data_glasses is 0.0
+EER on example_data_glasses is 0.0  
 EER on Celeba test is 0.02
 
 ## Retrain the Model:
@@ -30,5 +30,5 @@ Don't forget to install *pip install git+https://github.com/klapeyron5/klapeyron
 If u r running my code  
 
 ## Eval the Model
-Run /train/eval.py
+Run /train/eval.py  
 Follow other points from **Retrain the Model** paragraph  
