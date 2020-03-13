@@ -20,8 +20,8 @@ preproc_val = Pre([Pre.READ_TF_IMG, Pre.CROP_BB, Pre.RESIZE_PROPORTIONAL_TF_BILI
 
 dm = Data_manager(256, csv_paths, preproc_trn, preproc_val, CSV_c.SAMPLE_FILE, CSV_c)
 m_config = Model_Config((size,size,3))
-optimizer = tf.keras.optimizers.RMSprop(learning_rate=0.001)
-m_trn_config = Model_Train_Config(optimizer, reg_l2_beta=0.1, dropout_drop_prob=0.2)
+optimizer = tf.keras.optimizers.RMSprop(learning_rate=0.0001)
+m_trn_config = Model_Train_Config(optimizer, reg_l2_beta=0.01, dropout_drop_prob=0.1)
 m = ResNet14_v2_mini(m_config, m_trn_config)
 tr = Train_Pipeline('F:/has_glasses/exp6_run0', csv_paths, dm, m, resume_from_log=Train_Pipeline.LOG_TAG_BEST_EER)
 tr.train()
