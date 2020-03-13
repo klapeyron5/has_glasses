@@ -8,7 +8,7 @@ preproc_trn = Pre([Pre.READ_TF_IMG, Pre.FLIP, Pre.ROTATE, Pre.CROP_BB, Pre.RESIZ
 preproc_val = Pre([Pre.READ_TF_IMG, Pre.CROP_BB, Pre.RESIZE_PROPORTIONAL_TF_BILINEAR, Pre.STANDARDIZE, Pre.PAD_TO_INPUT_CENTER], size)
 
 csv_paths = ['D:/has_glasses_data/example_data_glasses/data.csv']
-checkpoint_path = 'F:\has_glasses\exp6_run0\checkpoints\checkpoint_opt_eer'
+checkpoint_path = 'F:\has_glasses\exp7_run0\checkpoints\checkpoint_opt_eer'
 
 
 print('final_test:')
