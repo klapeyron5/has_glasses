@@ -21,9 +21,9 @@ If u wish to measure inference time of classificator only:
 *v002:*
 The Model is ResNet14_v2_mini *https://github.com/klapeyron5/klapeyron_py_utils/blob/master/klapeyron_py_utils/models/ResNet14_v2_mini3.py*  
 The Model was trained on:  
-Celeba train set  
-SoF  
-MeGlass  
+Celeba train set (http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html)  
+SoF (https://sites.google.com/view/sof-dataset)  
+MeGlass (https://github.com/cleardusk/MeGlass)  
 with validation on Celeba val set  
 The Model was tested on Celeba test set and example_data_glasses (40 images)  
 
