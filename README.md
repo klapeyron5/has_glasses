@@ -12,6 +12,9 @@ or the same query:
 **python task_py.py /path/to/faces/ 0**  
 0 here is number of GPU  
 
+*older versions:*  
+https://github.com/klapeyron5/has_glasses/blob/master/export_001.rar  
+
 ## Inference time:
 If u wish to measure inference time of classificator only:  
 **python task_py.py get_time -1**  
