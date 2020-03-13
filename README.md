@@ -5,7 +5,7 @@ either person on image has glasses or not
 ## How to use as the task:
 download and extract export.rar https://github.com/klapeyron5/has_glasses/blob/master/export.rar  
   
-cd export  
+**cd export**  
 **python task_py.py /path/to/faces/**  
 or the same query:  
 **python task_py.py /path/to/faces/ 0**  
