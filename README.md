@@ -50,8 +50,7 @@ EER on Celeba test is 0.018
 ## Retrain the Model:
 Run /train/train.py  
 Get the data in proper format (better to request from me as archive)  
-Don't forget to install *pip install git+https://github.com/klapeyron5/klapeyron_py_utils*  
-If u r running my code  
+Don't forget to *pip install git+https://github.com/klapeyron5/klapeyron_py_utils* if u r running my code  
 
 ## Eval the Model
 Run /train/eval.py  
