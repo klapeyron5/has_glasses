@@ -45,7 +45,7 @@ def ut_1():
     det = FDet()
     import os
     import shutil
-    example_data_path = 'D:\has_glasses_data\example_data_glasses/data'
+    example_data_path = 'D:\has_glasses_data\SoF/data'
     dist_vis_dir = './vis_example_data'
     if os.path.isdir(dist_vis_dir):
         shutil.rmtree(dist_vis_dir)
@@ -64,4 +64,4 @@ def ut_1():
             img = cv2.rectangle(img, (l, t), (r, b), [0, 255, 0], thickness=3)
             cv2.imwrite(dst_file, img)
             assert os.path.isfile(dst_file)
-ut_1()
+# ut_1()

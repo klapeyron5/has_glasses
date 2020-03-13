@@ -17,7 +17,7 @@ def print_files_with_glass(directory, callback=callback):
     assert os.path.isdir(directory), directory + ' should exist'
     assert callable(callback)
     model = tf.saved_model.load(checkpoint_path)
-    thr = 0.015
+    thr = 0.06
     size = 120
     preproc = Pre([Pre.READ_TF_IMG, Pre.CROP_BB, Pre.RESIZE_PROPORTIONAL_TF_BILINEAR, Pre.STANDARDIZE, Pre.PAD_TO_INPUT_CENTER], size)
     for pardir, dirname, files in os.walk(directory):

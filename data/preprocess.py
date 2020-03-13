@@ -121,6 +121,8 @@ class Pre(Data_process_pipe):
             l, t, r, b = bb
         if not(l==-1 or t>=b or l>=r):
             img = img[t:b,l:r]
+        else:
+            img = np.zeros_like(img)  # TODO
         kwargs['x'] = img
         return kwargs
 

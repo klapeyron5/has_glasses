@@ -6,6 +6,7 @@ from klapeyron_py_utils.models.ResNet14_v2 import ResNet14_v2
 from klapeyron_py_utils.models.ResNet14_v2_mini import ResNet14_v2_mini
 from klapeyron_py_utils.models.ResNet10_v2_mini import ResNet10_v2_mini
 from klapeyron_py_utils.models.ResNet14_v2_mini2 import ResNet14_v2_mini2
+from klapeyron_py_utils.models.ResNet14_v2_mini3 import ResNet14_v2_mini3
 from klapeyron_py_utils.models.configs.model_config import Model_Config
 from klapeyron_py_utils.models.configs.model_train_config import Model_Train_Config
 from klapeyron_py_utils.tensorflow.imports import import_tensorflow
@@ -13,7 +14,7 @@ tf = import_tensorflow(3)
 from data.csv import CSV_c
 
 # csv_paths = ['D:/has_glasses_data/MeGlass/data.csv', 'D:/has_glasses_data/example_data_glasses/data.csv',]
-csv_paths = ['D:/has_glasses_data/Celeba/data.csv']
+csv_paths = ['D:/has_glasses_data/Celeba/data.csv', 'D:/has_glasses_data/SoF/data.csv', 'D:/has_glasses_data/MeGlass/data.csv']
 
 size = 120
 preproc_trn = Pre([Pre.READ_TF_IMG, Pre.FLIP, Pre.ROTATE, Pre.CROP_BB, Pre.RESIZE_COMMON, Pre.STANDARDIZE, Pre.PAD_TO_INPUT_CENTER], size)
@@ -23,6 +24,7 @@ dm = Data_manager(150, csv_paths, preproc_trn, preproc_val, CSV_c.SAMPLE_FILE, C
 m_config = Model_Config((size,size,3))
 optimizer = tf.keras.optimizers.RMSprop(learning_rate=0.001)
 m_trn_config = Model_Train_Config(optimizer, reg_l2_beta=0.1, dropout_drop_prob=0.2)
-m = ResNet14_v2_mini2(m_config, m_trn_config)
-tr = Train_Pipeline('F:/has_glasses/exp7_run0', csv_paths, dm, m)#, resume_from_log=Train_Pipeline.LOG_TAG_BEST_EER)
+m = ResNet14_v2_mini3(m_config, m_trn_config)
+tr = Train_Pipeline('E:\has_glasses_logs\exp7_run2', csv_paths, dm, m,)
+                    # start_checkpoint_path='F:/has_glasses/exp7_run0/checkpoints/checkpoint_opt_eer')
 tr.train()
