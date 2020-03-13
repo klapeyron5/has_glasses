@@ -6,13 +6,15 @@ either person on image has glasses or not
 download and extract export.rar https://github.com/klapeyron5/has_glasses/blob/master/export.rar  
   
 cd export  
-**python task_py.py /path/to/faces/ /device:GPU:0**  
-or the same query:  
 **python task_py.py /path/to/faces/**  
+or the same query:  
+**python task_py.py /path/to/faces/ 0**  
+0 here is number of GPU  
 
 ## Inference time:
 If u wish to measure inference time of classificator only:  
-**python task_py.py get_time /device:CPU:0**  
+**python task_py.py get_time -1**  
+-1 here is CPU
 
 ## Description:
 The Model is ResNet14_v2_mini *https://github.com/klapeyron5/klapeyron_py_utils/blob/master/klapeyron_py_utils/models/ResNet14_v2_mini.py*  
