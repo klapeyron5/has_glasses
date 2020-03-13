@@ -16,6 +16,7 @@ class Pre(Data_process_pipe):
     READ_TF_IMG = 'read_tf_img'
 
     RESIZE_PROPORTIONAL_TF_BILINEAR = 'resize_proportional_tf_bilinear'
+    RESIZE_COMMON = 'resize_common'
     PAD_TO_INPUT_CENTER = 'pad_to_input_center'
     STANDARDIZE = 'standardize'
     CROP_BB = 'crop_bb'
@@ -41,6 +42,27 @@ class Pre(Data_process_pipe):
         filepath = kwargs['filepath']
         _, img = read_img_as_bytes_ndarray(filepath)
         # assert len(img.shape) == 3, filepath
+        kwargs['x'] = img
+        return kwargs
+
+    def resize_common(self, **kwargs):
+        if randint(2):
+            kwargs = self.resize_proportion_cv2(**kwargs)
+        else:
+            kwargs = self.resize_proportional_tf_bilinear(**kwargs)
+        return kwargs
+
+    def resize_proportion_cv2(self, **kwargs):
+        img = kwargs['x']
+        shape = img.shape
+        y, x = shape[0], shape[1]
+        max_edge = max(x, y)
+        scaling = self.sample_size / max_edge
+        newx = int(round(scaling * x))
+        newy = int(round(scaling * y))
+        new_size = (newx, newy)
+        img = img.astype(np.float32)
+        img = cv2.resize(img, new_size, interpolation=self.get_interpolation_resize())
         kwargs['x'] = img
         return kwargs
 
@@ -108,6 +130,9 @@ class Pre(Data_process_pipe):
             img = np.flip(img, 1)  # vertical flip
         kwargs['x'] = img
         return kwargs
+
+    def get_interpolation_resize(self):
+        return np.random.randint(0, 6)
 
     @staticmethod
     def get_interpolation_warpaffine():
