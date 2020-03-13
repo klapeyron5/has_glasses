@@ -3,6 +3,8 @@ Predicts face image on two classes:
 either person on image has glasses or not  
 
 ## How to use as the task:
+download and extract export.rar https://github.com/klapeyron5/has_glasses/blob/master/export.rar  
+  
 cd export  
 **python task_py.py /path/to/faces/ /device:GPU:0**  
 or the same query:  
