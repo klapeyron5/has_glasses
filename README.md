@@ -1,4 +1,6 @@
 # has_glasses
+Predict face image on two classes:  
+either person on image has glasses or not  
 
 ## How to use as the task:
 cd export  
